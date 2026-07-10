@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>the Peak — Dara-Abasi Ita</title>
+<meta name="description" content="The PEAK Agenda. A vision for a stronger LAWSAN. Dara-Abasi Ita for LAWSAN President.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f7f7f7;
+  --bg-warm:#fafafa;
+  --bg-dark:#0a0a0a;
+  --bg-darker:#050505;
+  --text:#0a0a0a;
+  --text-muted:#6b6b6b;
+  --text-light:#999;
+  --text-faint:#ccc;
+  --border:rgba(0,0,0,0.06);
+  --border-strong:rgba(0,0,0,0.1);
+  --gold:#b8860b;
+  --gold-soft:rgba(184,134,11,0.08);
+  --transition-luxury:cubic-bezier(0.16,1,0.3,1);
+  --transition-smooth:cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'DM Sans','Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.1);border-radius:10px}
+
+/* Noise texture overlay */
+.noise{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px}
+
+/* ─── NAVIGATION ─── */
+.nav{position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:14px 32px;min-width:720px;max-width:92vw;border-radius:100px;background:rgba(255,255,255,0.55);backdrop-filter:blur(24px) saturate(1.8);-webkit-backdrop-filter:blur(24px) saturate(1.8);border:1px solid rgba(255,255,255,0.35);box-shadow:0 4px 30px rgba(0,0,0,0.03);transition:all 0.6s var(--transition-luxury)}
+.nav.scrolled{padding:10px 28px;background:rgba(255,255,255,0.88);box-shadow:0 8px 40px rgba(0,0,0,0.06)}
+.nav-logo{font-family:'Inter',sans-serif;font-size:1rem;font-weight:800;letter-spacing:-0.03em;color:var(--text);text-decoration:none;text-transform:uppercase;transition:opacity 0.3s ease}
+.nav-logo:hover{opacity:0.5}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none}
+.nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-muted);text-decoration:none;letter-spacing:0.01em;position:relative;padding:4px 0;transition:color 0.3s ease}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--text);transition:width 0.4s var(--transition-luxury)}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:10px 24px;border-radius:100px;background:var(--text);color:var(--bg);font-size:0.78rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;transition:all 0.4s var(--transition-luxury);box-shadow:0 4px 16px rgba(0,0,0,0.1)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1002;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s var(--transition-luxury)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:all 0.5s var(--transition-luxury)}
+.mobile-menu.active{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:'Instrument Serif',serif;font-size:2.2rem;font-weight:400;color:var(--text);text-decoration:none;letter-spacing:-0.02em;transition:opacity 0.3s ease}
+.mobile-menu a:hover{opacity:0.4}
+
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:160px 8vw 100px}
+.hero-bg-letter{position:absolute;right:-8vw;top:45%;transform:translateY(-50%);font-family:'Inter',sans-serif;font-size:clamp(20rem,35vw,45rem);font-weight:900;color:rgba(0,0,0,0.025);letter-spacing:-0.06em;line-height:0.8;pointer-events:none;user-select:none;z-index:0}
+.hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-left{display:flex;flex-direction:column;gap:32px}
+.hero-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light);opacity:0;transform:translateY(20px);animation:fadeUp 0.8s var(--transition-luxury) 0.2s forwards}
+.hero-title{font-family:'Inter',sans-serif;font-size:clamp(3rem,6vw,6.5rem);font-weight:900;line-height:0.95;letter-spacing:-0.04em;color:var(--text);opacity:0;transform:translateY(40px);animation:fadeUp 1s var(--transition-luxury) 0.4s forwards}
+.hero-title span{display:block}
+.hero-subtitle{font-family:'Instrument Serif',serif;font-size:clamp(1.2rem,2vw,2rem);font-weight:400;color:var(--text-muted);line-height:1.4;max-width:480px;opacity:0;transform:translateY(20px);animation:fadeUp 0.8s var(--transition-luxury) 0.7s forwards}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;padding:16px 36px;border-radius:100px;background:var(--text);color:var(--bg);font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;box-shadow:0 6px 24px rgba(0,0,0,0.12);transition:all 0.4s var(--transition-luxury);opacity:0;transform:translateY(20px);animation:fadeUp 0.8s var(--transition-luxury) 1s forwards;max-width:fit-content}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,0,0,0.18)}
+.hero-cta svg{width:16px;height:16px;stroke:var(--bg);stroke-width:2;fill:none}
+.hero-right{position:relative;display:flex;justify-content:center}
+.hero-portrait{width:100%;max-width:440px;aspect-ratio:3/4;border-radius:28px;overflow:hidden;opacity:0;transform:scale(0.95) translateY(30px);animation:heroImageIn 1.2s var(--transition-luxury) 0.5s forwards;box-shadow:0 40px 100px rgba(0,0,0,0.12);position:relative}
+.hero-portrait::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.08) 100%);z-index:2;pointer-events:none}
+.hero-portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(8%) contrast(1.04);transition:transform 0.8s var(--transition-smooth)}
+.hero-portrait:hover img{transform:scale(1.03)}
+
+/* ─── INTRO ─── */
+.intro{padding:180px 8vw;background:var(--bg);position:relative;overflow:hidden}
+.intro-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Inter',sans-serif;font-size:clamp(15rem,25vw,35rem);font-weight:900;color:rgba(0,0,0,0.018);letter-spacing:-0.05em;pointer-events:none;user-select:none}
+.intro-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.intro-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light);margin-bottom:32px}
+.intro-title{font-family:'Instrument Serif',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);font-weight:400;line-height:1.05;letter-spacing:-0.02em;margin-bottom:48px}
+.intro-body{display:flex;flex-direction:column;gap:28px}
+.intro-body p{font-size:clamp(1rem,1.2vw,1.15rem);color:var(--text-muted);line-height:1.85;max-width:680px}
+.intro-body p strong{color:var(--text);font-weight:600}
+
+
+/* ─── PILLARS PREVIEW ─── */
+.pillars-preview{padding:140px 8vw;background:var(--bg-soft);position:relative}
+.pillars-preview::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent)}
+.pillars-header{text-align:center;margin-bottom:100px}
+.pillars-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.pillars-title{font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1.1;letter-spacing:-0.02em}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto}
+.pillar-card{background:var(--bg);border-radius:24px;padding:48px 32px;text-align:center;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.02);transition:all 0.5s var(--transition-luxury);position:relative;overflow:hidden;cursor:pointer}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.06),transparent);opacity:0;transition:opacity 0.4s ease}
+.pillar-card:hover{transform:translateY(-10px);box-shadow:0 24px 60px rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.08)}
+.pillar-card:hover::before{opacity:1}
+.pillar-card.active{border-color:var(--text);box-shadow:0 24px 60px rgba(0,0,0,0.08)}
+.pillar-letter{font-family:'Inter',sans-serif;font-size:4rem;font-weight:900;line-height:1;color:var(--text);margin-bottom:16px;transition:color 0.3s ease}
+.pillar-card:hover .pillar-letter{color:var(--text-muted)}
+.pillar-card.active .pillar-letter{color:var(--text)}
+.pillar-name{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:8px;letter-spacing:-0.01em}
+.pillar-desc{font-size:0.82rem;color:var(--text-muted);line-height:1.5}
+
+/* ─── PILLAR DETAIL SECTIONS ─── */
+.pillar-detail{padding:0;background:var(--bg);position:relative;overflow:hidden;display:none}
+.pillar-detail.active{display:block}
+.pillar-detail-inner{max-width:1400px;margin:0 auto;padding:120px 8vw;position:relative;z-index:1}
+.pillar-hero-letter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Inter',sans-serif;font-size:clamp(25rem,40vw,55rem);font-weight:900;color:rgba(0,0,0,0.02);letter-spacing:-0.06em;pointer-events:none;user-select:none;z-index:0}
+.pillar-detail-header{text-align:center;margin-bottom:100px;position:relative;z-index:1}
+.pillar-detail-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light);margin-bottom:20px}
+.pillar-detail-title{font-family:'Instrument Serif',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:400;line-height:1.05;letter-spacing:-0.02em;margin-bottom:16px}
+.pillar-detail-subtitle{font-size:1.05rem;color:var(--text-muted);max-width:560px;margin:0 auto;line-height:1.7}
+
+/* Initiatives Grid */
+.initiatives-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.initiative-card{background:linear-gradient(145deg,var(--bg),var(--bg-soft));border-radius:24px;padding:40px 32px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.02);transition:all 0.5s var(--transition-luxury);position:relative;overflow:hidden}
+.initiative-card::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(0,0,0,0.015) 0%,transparent 60%);opacity:0;transition:opacity 0.5s ease}
+.initiative-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.05);border-color:rgba(0,0,0,0.1)}
+.initiative-card:hover::after{opacity:1}
+.initiative-card>*{position:relative;z-index:1}
+.initiative-icon{width:44px;height:44px;margin-bottom:24px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--bg);border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.03)}
+.initiative-icon svg{width:20px;height:20px;stroke:var(--text-muted);stroke-width:1.5;fill:none}
+.initiative-title{font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:10px;letter-spacing:-0.01em}
+.initiative-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.65}
+
+
+/* ─── ABOUT ─── */
+.about{padding:160px 8vw;background:var(--bg);position:relative}
+.about-inner{display:grid;grid-template-columns:1fr 1.15fr;gap:100px;max-width:1300px;margin:0 auto;align-items:center}
+.about-image-wrapper{position:relative}
+.about-image{width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.1)}
+.about-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(8%) contrast(1.04);transition:transform 0.8s var(--transition-smooth)}
+.about-image:hover img{transform:scale(1.03)}
+.about-right{padding-left:20px}
+.about-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.about-title{font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:400;line-height:1.1;letter-spacing:-0.02em;margin-bottom:32px}
+.about-bio{font-size:0.95rem;color:var(--text-muted);line-height:1.85;margin-bottom:28px}
+.about-bio p{margin-bottom:16px}
+
+/* ─── TRACK RECORD ─── */
+.track{padding:140px 8vw;background:var(--bg-soft);position:relative}
+.track::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent)}
+.track-header{text-align:center;margin-bottom:80px}
+.track-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.track-title{font-family:'Instrument Serif',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1.1;letter-spacing:-0.02em}
+.track-categories{display:flex;flex-direction:column;gap:60px;max-width:1000px;margin:0 auto}
+.track-category{display:flex;flex-direction:column;gap:24px}
+.track-category-label{font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-light);padding-bottom:12px;border-bottom:1px solid var(--border)}
+.track-items{display:flex;flex-direction:column;gap:16px}
+.track-item{display:grid;grid-template-columns:120px 1fr 1fr;gap:40px;align-items:center;padding:24px 0;border-bottom:1px solid var(--border);transition:all 0.3s ease}
+.track-item:hover{padding-left:12px}
+.track-year{font-family:'Instrument Serif',serif;font-size:1.1rem;font-weight:400;color:var(--text-light)}
+.track-role{font-size:1rem;font-weight:600;color:var(--text);letter-spacing:-0.01em}
+.track-institution{font-size:0.88rem;color:var(--text-muted)}
+
+/* ─── QUOTE ─── */
+.quote{padding:180px 8vw;background:var(--bg);text-align:center;position:relative;overflow:hidden}
+.quote::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(0,0,0,0.012) 0%,transparent 70%);pointer-events:none}
+.quote-mark{font-family:'Instrument Serif',serif;font-size:10rem;line-height:0.4;color:rgba(0,0,0,0.04);margin-bottom:24px;user-select:none}
+.quote-text{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:400;line-height:1.3;letter-spacing:-0.01em;max-width:800px;margin:0 auto 40px;color:var(--text);position:relative;z-index:1}
+.quote-author{font-size:0.85rem;font-weight:500;color:var(--text-light);letter-spacing:0.05em}
+
+/* ─── GET INVOLVED ─── */
+.involved{padding:120px 8vw;background:var(--bg-soft);text-align:center}
+.involved-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.involved-title{font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.1;letter-spacing:-0.02em;margin-bottom:48px}
+.involved-actions{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.involved-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:100px;font-size:0.88rem;font-weight:600;letter-spacing:0.02em;text-decoration:none;transition:all 0.4s var(--transition-luxury)}
+.involved-btn-primary{background:var(--text);color:var(--bg);box-shadow:0 6px 24px rgba(0,0,0,0.12)}
+.involved-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,0,0,0.18)}
+.involved-btn-secondary{background:transparent;color:var(--text);border:1.5px solid var(--border-strong)}
+.involved-btn-secondary:hover{border-color:var(--text);transform:translateY(-2px)}
+.involved-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
+
+/* ─── FOOTER ─── */
+.footer{padding:60px 8vw 40px;background:var(--bg-dark);color:#fff}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:-0.03em;text-transform:uppercase;color:#fff;text-decoration:none}
+.footer-tagline{font-family:'Instrument Serif',serif;font-size:1rem;font-weight:400;color:rgba(255,255,255,0.35);font-style:italic}
+.footer-copy{font-size:0.78rem;color:rgba(255,255,255,0.3)}
+
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes heroImageIn{to{opacity:1;transform:scale(1) translateY(0)}}
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.9s var(--transition-luxury)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1100px){
+.pillars-grid{grid-template-columns:repeat(2,1fr)}
+.initiatives-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:1024px){
+.nav{min-width:auto;width:92vw;padding:12px 20px}
+.nav-links{display:none}
+.hamburger{display:flex}
+.hero-inner{grid-template-columns:1fr;gap:60px}
+.hero-right{order:-1}
+.hero-portrait{max-width:360px;margin:0 auto}
+.hero-bg-letter{display:none}
+.about-inner{grid-template-columns:1fr;gap:60px}
+.about-right{padding-left:0}
+.about-image{max-width:380px;margin:0 auto}
+.track-item{grid-template-columns:80px 1fr;gap:16px}
+.track-institution{grid-column:2}
+}
+@media(max-width:768px){
+.hero{padding:120px 5vw 60px}
+.intro,.pillars-preview,.track,.about,.quote,.involved{padding:80px 5vw}
+.pillars-grid{grid-template-columns:1fr;max-width:400px}
+.initiatives-grid{grid-template-columns:1fr;max-width:480px;gap:16px}
+.initiative-card{padding:32px 24px}
+.initiative-title{font-size:1rem}
+.initiative-desc{font-size:0.82rem}
+.track-item{grid-template-columns:1fr;gap:8px}
+.track-year{font-size:0.9rem}
+.track-institution{grid-column:auto}
+.quote-mark{font-size:6rem}
+.involved-actions{flex-direction:column;align-items:center}
+.footer-inner{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.hero-title{font-size:2.4rem}
+.intro-title{font-size:1.8rem}
+.pillars-title{font-size:1.8rem}
+.track-title{font-size:1.8rem}
+.involved-title{font-size:1.8rem}
+.quote-text{font-size:1.3rem}
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<a href="#" class="nav-logo">Dare With Dara</a>
+<ul class="nav-links">
+<li><a href="#agenda">Agenda</a></li>
+<li><a href="#track">Track Record</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#involved">Get Involved</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#agenda" class="mobile-link">Agenda</a>
+<a href="#track" class="mobile-link">Track Record</a>
+<a href="#about" class="mobile-link">About</a>
+<a href="#involved" class="mobile-link">Get Involved</a>
+</div>
+
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="hero-bg-letter">The Peak</div>
+<div class="hero-inner">
+<div class="hero-left">
+<div class="hero-label">Dara-Abasi Ita for LAWSAN President</div>
+<h1 class="hero-title"><span>the</span><span>Peak</span></h1>
+<p class="hero-subtitle">A vision for a stronger LAWSAN. Built on competence, credibility, and a commitment to every student.</p>
+<a href="#agenda" class="hero-cta">
+Explore the Peak Agenda
+<svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+</a>
+</div>
+<div class="hero-right">
+<div class="hero-portrait">
+<img src="dwd.jpg" alt="Dara-Abasi Ita" loading="eager">
+</div>
+</div>
+</div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+<div class="intro-bg">PEAK</div>
+<div class="intro-inner">
+<div class="intro-label">The Vision</div>
+<h2 class="intro-title">Why I am running</h2>
+<div class="intro-body">
+<p>My name is Dara-Abasi Ita, and I am running to lead our faculty on what I call the <strong>PEAK agenda</strong>. Four pillars, and beneath each one a set of things I mean to actually do, not merely say.</p>
+<p><strong>Professional Advancement. Equity and Inclusion. Academic Excellence. Kinship and Community.</strong> Here is what each of them means, and why it matters.</p>
+</div>
+</div>
+</section>
+
+
+<!-- PILLARS PREVIEW -->
+<section class="pillars-preview" id="agenda">
+<div class="pillars-header">
+<div class="pillars-label">The Agenda</div>
+<h2 class="pillars-title">Four pillars. Real plans.<br>Not empty promises.</h2>
+</div>
+<div class="pillars-grid">
+<div class="pillar-card active" data-pillar="p">
+<div class="pillar-letter">P</div>
+<div class="pillar-name">Professional Advancement</div>
+<div class="pillar-desc">Opening the path and standing on our own feet.</div>
+</div>
+<div class="pillar-card" data-pillar="e">
+<div class="pillar-letter">E</div>
+<div class="pillar-name">Equity and Inclusion</div>
+<div class="pillar-desc">Where you come from never decides how far you go.</div>
+</div>
+<div class="pillar-card" data-pillar="a">
+<div class="pillar-letter">A</div>
+<div class="pillar-name">Academic Excellence</div>
+<div class="pillar-desc">Tools within reach. Chances open to everyone.</div>
+</div>
+<div class="pillar-card" data-pillar="k">
+<div class="pillar-letter">K</div>
+<div class="pillar-name">Kinship and Community</div>
+<div class="pillar-desc">We are a people, not just a register of names.</div>
+</div>
+</div>
+</section>
+
+<!-- PILLAR P: PROFESSIONAL ADVANCEMENT -->
+<section class="pillar-detail active" id="pillar-p">
+<div class="pillar-detail-inner">
+<div class="pillar-hero-letter">P</div>
+<div class="pillar-detail-header">
+<div class="pillar-detail-label">Pillar One</div>
+<h2 class="pillar-detail-title">Professional Advancement</h2>
+<p class="pillar-detail-subtitle">Most of us came to law school with the same quiet hope: that it would lead somewhere. Too often the path there is hidden, and the money to run our own affairs is never quite enough. This pillar is about opening that path and standing on our own feet.</p>
+</div>
+<div class="initiatives-grid">
+<div class="initiative-card">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+</div>
+<h3 class="initiative-title">Career & Internship Board</h3>
+<p class="initiative-desc">Right now, the openings that matter reach only the students who happen to be well connected. Someone hears of an internship, tells a friend, and the rest of us never knew it existed. I want to end that quiet unfairness. The Career and Internship Board will be one place where opportunities and internships are gathered and shared openly, so that a first-year with no contacts sees the same chance as anyone else. If you have the merit, you should not lose out simply because you did not know.</p>
+</div>
+<div class="initiative-card">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24">
+  <!-- Bill outline -->
+  <path d="M3 8V16H21V8H3Z"/>
+
+  <!-- Middle circle -->
+  <path d="M12 10A2 2 0 1112 14A2 2 0 0112 10"/>
+
+  <!-- Side marks -->
+  <path d="M6 12H6.01"/>
+  <path d="M18 12H18.01"/>
+</svg>
+</div>
+<h3 class="initiative-title">IGR Board</h3>
+<p class="initiative-desc">We cannot keep running this association on dues alone. It leaves us broke, and it leaves us begging. I want an Internally Generated Revenue Board whose whole job is to help us earn our own keep, so that when we plan something we are not stopped for want of money we could have raised ourselves. There is honest money in things we already need: ties carrying our logo, ID cards issued by us, corporate bags, brooches, diaries and pens. Run well, these fund the very programmes on this page, and they do it without reaching deeper into your pocket.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- PILLAR E: EQUITY AND INCLUSION -->
+<section class="pillar-detail" id="pillar-e">
+<div class="pillar-detail-inner">
+<div class="pillar-hero-letter">E</div>
+<div class="pillar-detail-header">
+<div class="pillar-detail-label">Pillar Two</div>
+<h2 class="pillar-detail-title">Equity and Inclusion</h2>
+<p class="pillar-detail-subtitle">A faculty should not quietly leave its poorest and most vulnerable behind. This pillar is about making sure that where you come from, or what you can afford, is never the thing that decides how far you go here.</p>
+</div>
+<div class="initiatives-grid">
+<div class="initiative-card">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+</div>
+<h3 class="initiative-title">Scholarship Board</h3>
+<p class="initiative-desc">Every year, students who belong here struggle to stay, not for want of ability but for want of money. I want a Scholarship Board that takes this seriously. The first thing it will do is organise our alumni by their graduating class, the Class of 2000, the Class of 2001, and so on, so that when we raise funds we approach a whole class rather than chasing individuals. That way the weight rests on many shoulders and barely touches any one of them. The scholarships themselves will be open to three groups: students living with disability; students of clear academic excellence who lack the means; and students who simply lack the means. And every naira will be accounted for in the open. We will publish what was raised, what has been spent, and what remains, so that trust is never something you have to take on faith.</p>
+</div>
+<div class="initiative-card">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+</div>
+<h3 class="initiative-title">Welfare</h3>
+<p class="initiative-desc">Beyond scholarships, equity is also the small daily dignity of being a student here, and that has been neglected for too long.</p>
+<p class="initiative-desc">I will be the bridge between you and faculty management. Too many of our complaints die somewhere between the student who raised them and the office that could fix them. I intend to carry them properly, and to bring answers back.</p>
+<p class="initiative-desc">I will put cleaners on a proper payroll, so that our toilets and recreational spaces are kept genuinely clean, not cleaned once and forgotten. Hygiene is not a luxury.</p>
+<p class="initiative-desc">I will provide free examination materials each exam period, blue and red pens and two staplers for every class, so that no one sits an exam unprepared for want of something so cheap to give.</p>
+<p class="initiative-desc">I will subsidise printing within the faculty, so that preparing for class stops quietly costing us money we do not have.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PILLAR A: ACADEMIC EXCELLENCE -->
+<section class="pillar-detail" id="pillar-a">
+<div class="pillar-detail-inner">
+<div class="pillar-hero-letter">A</div>
+<div class="pillar-detail-header">
+<div class="pillar-detail-label">Pillar Three</div>
+<h2 class="pillar-detail-title">Academic Excellence</h2>
+<p class="pillar-detail-subtitle">We do our best work when the tools to succeed are within reach, and when the chances to shine are open to everyone rather than a chosen few. This pillar is about both.</p>
+</div>
+<div class="initiatives-grid">
+<div class="initiative-card">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+</div>
+<h3 class="initiative-title">E-Repository</h3>
+<p class="initiative-desc">Past questions and materials are among the most useful things a law student can have, and yet they circulate in private, reaching some of us and not others, often too late to help. I want to build an e-repository, a shared library much like a Google Drive, holding the past questions and materials for every class and every course, arranged year by year. Once, and for all of us. What has always been an advantage for the few becomes a right for everyone.</p>
+</div>
+<div class="initiative-card">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+</div>
+<h3 class="initiative-title">Voluntary Mock Examinations</h3>
+<p class="initiative-desc">Nothing prepares you for an exam like sitting one before it counts. I will organise voluntary mock examinations for classes that want them, so that we walk into the real thing already familiar with its shape, its pressure and its pace.</p>
+</div>
+<div class="initiative-card">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+</div>
+<h3 class="initiative-title">Competition Board</h3>
+<p class="initiative-desc">Our competitions have too often been closed rooms, the same names chosen by a process no one can see. That is not how merit is meant to work. I want a Competition Board that throws those rooms open. Selection will follow a clear, merit-based standard, and the process itself will be transparent and open to every student who qualifies. If you are good enough, you will get your chance, and you will be able to see exactly how you earned it.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- PILLAR K: KINSHIP AND COMMUNITY -->
+<section class="pillar-detail" id="pillar-k">
+<div class="pillar-detail-inner">
+<div class="pillar-hero-letter">K</div>
+<div class="pillar-detail-header">
+<div class="pillar-detail-label">Pillar Four</div>
+<h2 class="pillar-detail-title">Kinship and Community</h2>
+<p class="pillar-detail-subtitle">We have slowly become strangers to one another, and to the alumni who came before us. This pillar is about remembering that we are a people, not just a register of names.</p>
+</div>
+<div class="initiatives-grid">
+<div class="initiative-card" style="grid-column:1/-1;max-width:800px;margin:0 auto;">
+<div class="initiative-icon">
+<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+</div>
+<h3 class="initiative-title">LAWSAN Week</h3>
+<p class="initiative-desc">I want to bring back LAWSAN Week and make it the moment the whole faculty comes alive again. It will run across several days and gather all of us, past and present:</p>
+<p class="initiative-desc">A casual cocktail and meet-and-greet, where we sit with our alumni as people rather than distant benefactors.</p>
+<p class="initiative-desc">An academic and career conference, where those who have gone ahead of us tell us honestly how they did it.</p>
+<p class="initiative-desc">A cultural day, where we celebrate everything we are and everywhere we come from.</p>
+<p class="initiative-desc">A moot competition and a deal advisory competition, where our sharpest minds test themselves in the open.</p>
+<p class="initiative-desc">A dinner ceremony to close, where we mark what we have done together and who we have become.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CLOSING LINE -->
+<section style="padding:100px 8vw;background:var(--bg);text-align:center;position:relative;">
+<div style="max-width:800px;margin:0 auto;">
+<p style="font-family:'Instrument Serif',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:400;line-height:1.5;color:var(--text);letter-spacing:-0.01em;">That is the PEAK agenda. Every line of it is something you will be able to hold me to, and something we can only reach together.</p>
+</div>
+</section>
+
+<!-- ABOUT / TRACK RECORD -->
+<section class="about" id="track">
+<div class="about-inner">
+<div class="about-image-wrapper">
+<div class="about-image">
+<img src="dara.jpeg" alt="Dara-Abasi Ita" loading="lazy">
+</div>
+</div>
+<div class="about-right">
+<div class="about-label">About / Track Record</div>
+<h2 class="about-title">Who I am, and what I have done.</h2>
+<div class="about-bio">
+<p>I have not come to this from nowhere. The work I have done, the offices I have held, and the people I have served are the reason I believe I can lead this faculty well.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TRACK RECORD -->
+<section class="track">
+<div class="track-header">
+<div class="track-label">Track Record</div>
+<h2 class="track-title">Leadership & Experience</h2>
+</div>
+<div class="track-categories">
+<div class="track-category">
+<div class="track-category-label">Leadership & Student Governance</div>
+<div class="track-items">
+<div class="track-item">
+<div class="track-year">2025–2026</div>
+<div class="track-role">Vice Chairman, Board of Justice</div>
+<div class="track-institution">Justice Udo Udoma Chambers</div>
+</div>
+<div class="track-item">
+<div class="track-year">2024</div>
+<div class="track-role">Head, Business Law Section</div>
+<div class="track-institution">Justice Udo Udoma Chambers</div>
+</div>
+<div class="track-item">
+<div class="track-year">2024</div>
+<div class="track-role">Deputy Director of Programmes & Policies</div>
+<div class="track-institution">Federation of African Law Students</div>
+</div>
+<div class="track-item">
+<div class="track-year">2023</div>
+<div class="track-role">Assistant Secretary General</div>
+<div class="track-institution">Justice Udo Udoma Chambers</div>
+</div>
+</div>
+</div>
+<div class="track-category">
+<div class="track-category-label">Work Experience</div>
+<div class="track-items">
+<div class="track-item">
+<div class="track-year">2026</div>
+<div class="track-role">Legal Intern</div>
+<div class="track-institution">Aluko & Oyebode</div>
+</div>
+<div class="track-item">
+<div class="track-year">2026</div>
+<div class="track-role">Contributing Writer</div>
+<div class="track-institution">Forbes</div>
+</div>
+<div class="track-item">
+<div class="track-year">2026</div>
+<div class="track-role">Contributing Writer</div>
+<div class="track-institution">The Financial Times</div>
+</div>
+<div class="track-item">
+<div class="track-year">2023–present</div>
+<div class="track-role">Lead Editor</div>
+<div class="track-institution">Lawverse Magazine</div>
+</div>
+<div class="track-item">
+<div class="track-year">2024–2026</div>
+<div class="track-role">Contributing Writer</div>
+<div class="track-institution">Investopedia</div>
+</div>
+<div class="track-item">
+<div class="track-year">2024</div>
+<div class="track-role">Legal Intern</div>
+<div class="track-institution">Banwo & Ighodalo</div>
+</div>
+<div class="track-item">
+<div class="track-year">2024</div>
+<div class="track-role">Contributing Writer</div>
+<div class="track-institution">Investing.com</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote">
+<div class="quote-mark">"</div>
+<p class="quote-text">That is the PEAK agenda. Every line of it is something you will be able to hold me to, and something we can only reach together.</p>
+<p class="quote-author">— Dara-Abasi Ita</p>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="involved" id="involved">
+<div class="involved-label">Join the Movement</div>
+<h2 class="involved-title">Get Involved</h2>
+<div class="involved-actions">
+<a href="https://bit.ly/4eT25JC" class="involved-btn involved-btn-primary" id="whatsappBtn">
+<svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+Join WhatsApp Group
+</a>
+<a href="mailto:darewithdara@gmail.com" class="involved-btn involved-btn-secondary">
+<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+Email Me
+</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+<a href="#" class="footer-logo">Dare With Dara</a>
+<p class="footer-tagline">the Peak.</p>
+<p class="footer-copy">Built with care for LAWSAN. Dara-Abasi Ita, 2026.</p>
+</div>
+</footer>
+
+
+<script>
+// ─── SCROLL NAV BEHAVIOR ───
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// ─── MOBILE MENU ───
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+});
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+  });
+});
+
+// ─── PILLAR SWITCHING ───
+const pillarCards = document.querySelectorAll('.pillar-card');
+const pillarDetails = document.querySelectorAll('.pillar-detail');
+
+pillarCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const pillar = card.dataset.pillar;
+
+    // Update cards
+    pillarCards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    // Update details
+    pillarDetails.forEach(d => d.classList.remove('active'));
+    const target = document.getElementById('pillar-' + pillar);
+    if (target) {
+      target.classList.add('active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ─── SCROLL REVEAL ───
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ─── SMOOTH SCROLL FOR ANCHOR LINKS ───
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>
